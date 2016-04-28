@@ -3,13 +3,13 @@ package movierental;
 public class MovieSpec {
     private int ID;
     private String title;
-    private String genre;
+    private Enum genre;
     private int year;
     private Enum status;
-    private String rating;
+    private Enum rating;
     
     
-    public MovieSpec(String title, String genre, int year, Enum status, String rating){
+    public MovieSpec(String title, Enum genre, int year, Enum status, Enum rating){
         this.ID = ID;
         this.title = title;
         this.genre = genre;
@@ -26,7 +26,7 @@ public class MovieSpec {
         return title;
     }
     
-    public String getGenre(){
+    public Enum getGenre(){
         return genre;
     }
     
@@ -38,7 +38,7 @@ public class MovieSpec {
         return status;
     }
     
-    public String getRating(){
+    public Enum getRating(){
         return rating;
     }
     public void f(){
