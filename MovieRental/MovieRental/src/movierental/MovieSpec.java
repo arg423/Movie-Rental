@@ -1,5 +1,7 @@
 package movierental;
 
+import java.util.ArrayList;
+
 public class MovieSpec {
     private int ID;
     private String title;
@@ -7,15 +9,17 @@ public class MovieSpec {
     private int year;
     private Enum status;
     private Enum rating;
+    private ArrayList<Actor> Actors = new ArrayList();
     
     
-    public MovieSpec(String title, Enum genre, int year, Enum status, Enum rating){
+    public MovieSpec(String title, Enum genre, int year, Enum status, Enum rating, ArrayList<Actor> Actors){
         this.ID = ID;
         this.title = title;
         this.genre = genre;
         this.year = year;
         this.status = status;
         this.rating = rating;
+        this.Actors = Actors;
     }
     
     public int getID(){
