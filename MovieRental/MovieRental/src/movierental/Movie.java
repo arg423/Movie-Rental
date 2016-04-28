@@ -26,20 +26,8 @@ public class Movie {
         return this.ID;
     }
     
-    public String getMake(){
-        return this.movie.getMake();
-    }
-    
-    public String getModel(){
-        return this.movie.getModel();
-    }
-    
     public int getYear(){
         return this.movie.getYear();
-    }
-    
-    public Enum getSize(){
-        return this.movie.getSize();
     }
         
     public void f(){

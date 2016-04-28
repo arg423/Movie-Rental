@@ -69,16 +69,14 @@ public class Customer {
         return returned;
     }
     
-    public ArrayList displayData()
+    public void displayData()
     {
-        ArrayList<String> r = new ArrayList();
-        r.add(name);
-        r.add(phone);
-        r.add(address);
-        return r;
+        f(name);
+        f(phone);
+        f(address);
     }
-    public void f(){
-        System.out.println("customer");
+    public void f(String out){
+        System.out.println(out);
     }
     
     
