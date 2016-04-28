@@ -12,10 +12,8 @@ package movierental;
 public class Actor {
     private String name;
     private Enum gender;
-    public Actor(String name, enum gender){
+    public Actor(String name, Enum gender){
         this.name = name;
         this.gender = gender;
-    }
-    
-    
+    }  
 }
