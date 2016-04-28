@@ -27,6 +27,7 @@ public class MovieRental {
         ArrayList<Customer> clients = new ArrayList();
         ArrayList<MovieSpec> movies = new ArrayList();
         ArrayList<Movie> inventory = new ArrayList();
+        ArrayList<Actor> actors = new ArrayList();
         Calendar cal = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
         
@@ -42,9 +43,21 @@ public class MovieRental {
         clients.add(new Customer("Joe","913-555-555","321 Oak St"));
         clients.add(new Customer("Steve","321-555-5555","258 Cherry St"));
         
-        movies.add(new MovieSpec("Indiana Jones",Genre.ACTION,2012,Status.AVAILABLE, Rating.PG13));
-        movies.add(new MovieSpec("Harry Potter", Genre.FANTASY, 2010,Status.RETURNED, Rating.PG13));
-        movies.add(new MovieSpec("Toy Story", Genre.ADVENTURE, 1994, Status.RENTED, Rating.G));
+        actors.add(new Actor("Harrison Ford", Gender.MALE));
+        actors.add(new Actor("Shia LaBouf", Gender.MALE));
+        movies.add(new MovieSpec("Indiana Jones",Genre.ACTION,2012,Status.AVAILABLE, Rating.PG13, actors));
+        actors.clear();
+        
+        actors.add(new Actor("Dainel Radcliffe",Gender.MALE));
+        actors.add(new Actor("Rupert Grint",Gender.MALE));
+        actors.add(new Actor("Emma Watson",Gender.FEMALE));
+        movies.add(new MovieSpec("Harry Potter", Genre.FANTASY, 2010,Status.RETURNED, Rating.PG13, actors));
+        actors.clear();
+        
+        actors.add(new Actor("Tom Hanks",Gender.MALE));
+        actors.add(new Actor("Tim Allen",Gender.MALE));
+        movies.add(new MovieSpec("Toy Story", Genre.ADVENTURE, 1994, Status.RENTED, Rating.G, actors));
+        actors.clear();
         
         inventory.add(new Movie("1001",movies.get(0)));
         inventory.add(new Movie("1002",movies.get(0)));
