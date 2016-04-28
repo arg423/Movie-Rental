@@ -42,9 +42,9 @@ public class MovieRental {
         clients.add(new Customer("Joe","913-555-555","321 Oak St"));
         clients.add(new Customer("Steve","321-555-5555","258 Cherry St"));
         
-        movies.add(new MovieSpec("Honda","Civic",2010,Status.AVAILABLE));
-        movies.add(new MovieSpec("Ford","Explorer",2012,Status.RETURNED));
-        movies.add(new MovieSpec("Chevy","Silverado",2016,Status.RENTED));
+        movies.add(new MovieSpec("Indiana Jones",ACTION,2012,Status.AVAILABLE, PG13));
+        movies.add(new MovieSpec("Harry Potter", Fantasy, 2010,Status.RETURNED, PG13));
+        movies.add(new MovieSpec("Toy Story", Adventure, 1994, Status.RENTED, G));
         
         inventory.add(new Movie("1001",cars.get(0)));
         inventory.add(new Movie("1002",cars.get(0)));
