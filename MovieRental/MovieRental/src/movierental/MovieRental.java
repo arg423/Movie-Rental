@@ -25,7 +25,7 @@ public class MovieRental {
      */
     public static void main(String[] args) {
         ArrayList<Customer> clients = new ArrayList();
-        ArrayList<MovieSpec> cars = new ArrayList();
+        ArrayList<MovieSpec> movies = new ArrayList();
         ArrayList<Movie> inventory = new ArrayList();
         Calendar cal = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
@@ -42,16 +42,16 @@ public class MovieRental {
         clients.add(new Customer("Joe","913-555-555","321 Oak St"));
         clients.add(new Customer("Steve","321-555-5555","258 Cherry St"));
         
-        movies.add(new MovieSpec("Indiana Jones",ACTION,2012,Status.AVAILABLE, PG13));
-        movies.add(new MovieSpec("Harry Potter", Fantasy, 2010,Status.RETURNED, PG13));
-        movies.add(new MovieSpec("Toy Story", Adventure, 1994, Status.RENTED, G));
+        movies.add(new MovieSpec("Indiana Jones",Genre.ACTION,2012,Status.AVAILABLE, Rating.PG13));
+        movies.add(new MovieSpec("Harry Potter", Genre.FANTASY, 2010,Status.RETURNED, Rating.PG13));
+        movies.add(new MovieSpec("Toy Story", Genre.ADVENTURE, 1994, Status.RENTED, Rating.G));
         
-        inventory.add(new Movie("1001",cars.get(0)));
-        inventory.add(new Movie("1002",cars.get(0)));
-        inventory.add(new Movie("1003",cars.get(1)));
-        inventory.add(new Movie("1004",cars.get(1)));
-        inventory.add(new Movie("1005",cars.get(2)));
-        inventory.add(new Movie("1006",cars.get(2)));
+        inventory.add(new Movie("1001",movies.get(0)));
+        inventory.add(new Movie("1002",movies.get(0)));
+        inventory.add(new Movie("1003",movies.get(1)));
+        inventory.add(new Movie("1004",movies.get(1)));
+        inventory.add(new Movie("1005",movies.get(2)));
+        inventory.add(new Movie("1006",movies.get(2)));
         
         CustomerFrameGUI w = new CustomerFrameGUI(clients, inventory);
         w.setVisible(true);
