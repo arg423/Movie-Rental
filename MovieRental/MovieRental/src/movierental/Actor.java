@@ -16,4 +16,12 @@ public class Actor {
         this.name = name;
         this.gender = gender;
     }  
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public Enum getGender(){
+        return this.gender;
+    }
 }
