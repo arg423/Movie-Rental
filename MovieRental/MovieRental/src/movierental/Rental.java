@@ -18,16 +18,26 @@ public class Rental {
     private Calendar returnDate;
     private Enum status;
     private Movie m;
+    private boolean pickupInStore; // if false mail to customer address.
     
-    public Rental(Calendar rentDate, Enum status, Movie c)
+    public Rental(Calendar rentDate, Enum status, Movie c, boolean pickupInStore)
     {
         this.rentDate = rentDate;
         this.status = status;
         this.m = m;
+        this.pickupInStore = pickupInStore;
+    }
+    
+    public boolean getPickupInStore(){
+        return pickupInStore;
     }
     
     public Enum getStatus(){
         return status;
+    }
+    
+    public void setStatus(Enum status){
+        this.status = status;
     }
     
     public Movie getMovie(){
