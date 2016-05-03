@@ -46,6 +46,6 @@ public class MovieSpec {
         return rating;
     }
     public void f(){
-        System.out.println("movieSPEC");
+        System.out.println(title);
     }
 }
