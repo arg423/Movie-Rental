@@ -24,7 +24,6 @@ public class MovieRental {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Customer> clients = new ArrayList();
         ArrayList<MovieSpec> movies = new ArrayList();
         ArrayList<Movie> inventory = new ArrayList();
         ArrayList<Actor> actors = new ArrayList();
@@ -41,10 +40,8 @@ public class MovieRental {
         cal2.set(Calendar.MONTH, 3);
         cal2.set(Calendar.DATE, 13);
         
-        clients.add(new Customer("Bob","816-555-555","123 Main St"));
-        clients.add(new Customer("Joe","913-555-555","321 Oak St"));
-        clients.add(new Customer("Steve","321-555-5555","258 Cherry St"));
-        
+        Customer testUser = new Customer("Bob","816-555-555","123 Main St");
+                
         actors.add(new Actor("Harrison Ford", Gender.MALE));
         actors.add(new Actor("Shia LaBouf", Gender.MALE));
         movies.add(new MovieSpec("Indiana Jones and the Kingdom of the Crystal Skull",Genre.ACTION,2012,Status.AVAILABLE, Rating.PG13, actors));
@@ -53,12 +50,12 @@ public class MovieRental {
         actors.add(new Actor("Dainel Radcliffe",Gender.MALE));
         actors.add(new Actor("Rupert Grint",Gender.MALE));
         actors.add(new Actor("Emma Watson",Gender.FEMALE));
-        movies.add(new MovieSpec("Harry Potter and the Order of the Pheonix", Genre.FANTASY, 2010,Status.RETURNED, Rating.PG13, actors));
+        movies.add(new MovieSpec("Harry Potter and the Order of the Pheonix", Genre.FANTASY, 2010,Status.AVAILABLE, Rating.PG13, actors));
         actors.clear();
         
         actors.add(new Actor("Tom Hanks",Gender.MALE));
         actors.add(new Actor("Tim Allen",Gender.MALE));
-        movies.add(new MovieSpec("Toy Story", Genre.ADVENTURE, 1994, Status.RENTED, Rating.G, actors));
+        movies.add(new MovieSpec("Toy Story", Genre.ADVENTURE, 1994, Status.AVAILABLE, Rating.G, actors));
         actors.clear();
         
         inventory.add(new Movie("1001",movies.get(0)));
@@ -69,22 +66,31 @@ public class MovieRental {
         inventory.add(new Movie("1006",movies.get(2)));
         
         // Task 1
+        ArrayList<Movie> results = new ArrayList();
+        results = searchInventory(inventory,"Toy Story"); //search the inventory for toy story
+        try{
+            testUser.newRental(cal, results.get(0), Boolean.TRUE); //Rent one of the selected movies, pick it up in store; Also sets return date
+        }
+        catch(Exception e){
+            System.out.print(e); // Cannot rent out a non avalible movie
+        }
+        
+        
+        
         
     }    
     
-    public ArrayList<Movie> searchInventory(String title){
+    public static ArrayList<Movie> searchInventory(ArrayList<Movie> inventory, String title){
+        ArrayList<Movie> results = new ArrayList();
         
+        for(int i = 0; i < inventory.size(); i++){
+            if(inventory.get(i).getSpec().getTitle()==title){
+                results.add(inventory.get(i)); //Add to results
+                inventory.get(i).getSpec().f(); // Display Data
+            }
+        }
+        
+        return results;
     }
     
-    public ArrayList<Movie> searchInventory(Enum genre){
-        
-    }
-    
-    public ArrayList<Movie> searchInventory(int year){
-        
-    }
-    
-    public ArrayList<Movie> searchInventory(String actor){
-        
-    }
 }

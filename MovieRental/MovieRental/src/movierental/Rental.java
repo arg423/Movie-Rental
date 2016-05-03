@@ -19,13 +19,18 @@ public class Rental {
     private Enum status;
     private Movie m;
     private boolean pickupInStore; // if false mail to customer address.
+    private boolean paid; //have they paid for the rental yet?
+    private int owed; //How much do they owe for their rental
     
     public Rental(Calendar rentDate, Enum status, Movie c, boolean pickupInStore)
     {
         this.rentDate = rentDate;
+        rentDate.roll(Calendar.DATE, 7);
+        this.returnDate = rentDate; // return date is one week from rent date
         this.status = status;
         this.m = m;
         this.pickupInStore = pickupInStore;
+        this.paid = false;
     }
     
     public boolean getPickupInStore(){

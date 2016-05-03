@@ -26,15 +26,12 @@ public class Movie {
         return this.ID;
     }
     
-    public int getYear(){
-        return this.movie.getYear();
-    }
-      
-    public String getTitle(){
-        return this.movie.getTitle();
+    public MovieSpec getSpec(){
+        return movie;
     }
     public void f(){
         System.out.println(movie.getTitle());
     }
+    
 }
 

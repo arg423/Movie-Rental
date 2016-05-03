@@ -38,18 +38,22 @@ public class Customer {
         return this.address;
     }
     
-    public void newRental(Calendar rentDate, Movie c)
+    public void newRental(Calendar rentDate, Movie c, Boolean pickupInStore) throws Exception
     {
-        Enum status = Status.RENTED;
-        rentals.add(new Rental(rentDate,status, c));
+        if(c.getSpec().getStatus() != Status.AVAILABLE)
+            throw new Exception("Movie not avalible");
+        else{
+            Enum status = Status.RENTED;
+            rentals.add(new Rental(rentDate,status, c, pickupInStore));
+        }
     }
     
-    public void returnedRental(Calendar returnDate, Movie c)
-    {
-        Enum status = Status.RETURNED;
-        returned.add(new Rental(returnDate, status, c));
-    }
-    
+//    public void returnedRental(Calendar returnDate, Movie c)
+//    {
+//        Enum status = Status.RETURNED;
+//        returned.add(new Rental(returnDate, status, c));
+//    }
+//    
     public ArrayList<Rental> getRented()
     {
         ArrayList<Rental> rented = new ArrayList();
