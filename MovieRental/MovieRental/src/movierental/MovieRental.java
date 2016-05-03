@@ -23,7 +23,7 @@ public class MovieRental {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ArrayList<MovieSpec> movies = new ArrayList();
         ArrayList<Movie> inventory = new ArrayList();
         ArrayList<Actor> actors = new ArrayList();
@@ -74,9 +74,12 @@ public class MovieRental {
         catch(Exception e){
             System.out.print(e); // Cannot rent out a non avalible movie
         }
-        
-        
-        
+        try{
+            testUser.getRented().get(0).pay(testUser.getRented().get(0).getOwed()); // Pay the amount owed
+        }
+        catch(Exception e){
+            System.out.print(e); // The amount owed was not paid
+        }
         
     }    
     

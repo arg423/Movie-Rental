@@ -20,7 +20,7 @@ public class Rental {
     private Movie m;
     private boolean pickupInStore; // if false mail to customer address.
     private boolean paid; //have they paid for the rental yet?
-    private int owed; //How much do they owe for their rental
+    private float owed; //How much do they owe for their rental
     
     public Rental(Calendar rentDate, Enum status, Movie c, boolean pickupInStore)
     {
@@ -31,6 +31,20 @@ public class Rental {
         this.m = m;
         this.pickupInStore = pickupInStore;
         this.paid = false;
+        this.owed = (float) 5.00;
+        System.out.print("Your total is " + owed);
+    }
+    
+    public void pay(float amount) throws Exception{
+        owed = owed - amount;
+        if(owed > 0)
+            throw new Exception("You have failed to pay your debt fully, you still owe: " + owed);
+        else
+            paid = true;
+    }
+    
+    public float getOwed(){
+        return owed;
     }
     
     public boolean getPickupInStore(){
