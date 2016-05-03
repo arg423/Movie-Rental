@@ -16,10 +16,19 @@ import java.util.Map;
 public class Movie {
         private String ID;
         private MovieSpec movie;
+        private Enum Status;
                 
     public Movie(String ID, MovieSpec movie){
         this.ID = ID;
         this.movie = movie;
+    }
+    
+    public Enum getStatus(){
+        return Status;
+    }
+    
+    public void setStatus(Enum Status){
+        this.Status = Status;
     }
     
     public String getID(){

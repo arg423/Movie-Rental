@@ -20,7 +20,7 @@ public class Rental {
     private Movie m;
     private boolean pickupInStore; // if false mail to customer address.
     private boolean paid; //have they paid for the rental yet?
-    private float owed; //How much do they owe for their rental
+    private double owed; //How much do they owe for their rental
     
     public Rental(Calendar rentDate, Enum status, Movie c, boolean pickupInStore)
     {
@@ -31,11 +31,11 @@ public class Rental {
         this.m = m;
         this.pickupInStore = pickupInStore;
         this.paid = false;
-        this.owed = (float) 5.00;
+        this.owed = 5.00;
         System.out.print("Your total is " + owed);
     }
     
-    public void pay(float amount) throws Exception{
+    public void pay(double amount) throws Exception{
         owed = owed - amount;
         if(owed > 0)
             throw new Exception("You have failed to pay your debt fully, you still owe: " + owed);
@@ -45,7 +45,7 @@ public class Rental {
         }
     }
     
-    public float getOwed(){
+    public double getOwed(){
         return owed;
     }
     
@@ -70,6 +70,10 @@ public class Rental {
         return sdf.format(returnDate.getTime());
     }
     
+    public Calendar getReturnDateC(){
+        return returnDate;
+    }
+    
     public String getRentDate(){
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         return sdf.format(rentDate.getTime());
@@ -77,6 +81,18 @@ public class Rental {
     
     public void setReturnDate(Calendar ReturnDate){
         this.returnDate = ReturnDate;
+    }
+    
+    public double calculateLateFee(Calendar currentDate){
+        double fee = 0;
+        if(currentDate.after(returnDate)){
+            do{
+                currentDate.roll(Calendar.DATE,false);
+                fee = fee + 0.01;
+            }while(currentDate.after(returnDate));
+        }
+        this.owed += fee;
+        return fee;
     }
     
     
