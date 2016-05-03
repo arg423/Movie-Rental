@@ -5,9 +5,9 @@
  */
 package movierental;
 
-import carrental.CustomerFrameGUI;
+
 import movierental.Movie;
-import carrental.Size;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
