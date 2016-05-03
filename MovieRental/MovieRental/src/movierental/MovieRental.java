@@ -83,7 +83,12 @@ public class MovieRental {
         
         
         //Task 2
-        
+        try{
+            searchByID(inventory,"1002");
+        }
+        catch(Exception e){
+            
+        }
     }    
     
     public static ArrayList<Movie> searchInventory(ArrayList<Movie> inventory, String title){
@@ -98,5 +103,14 @@ public class MovieRental {
         
         return results;
     }
+    
+    public static Movie searchByID(ArrayList<Movie> inventory, String ID) throws Exception{
+        for(int i = 0; i < inventory.size(); i++){
+            if(inventory.get(i).getID() == ID)
+                return inventory.get(i);
+            }
+        throw new Exception("No DVD matches given ID");
+    }
+
     
 }
