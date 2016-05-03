@@ -29,9 +29,12 @@ public class Movie {
     public int getYear(){
         return this.movie.getYear();
     }
-        
+      
+    public String getTitle(){
+        return this.movie.getTitle();
+    }
     public void f(){
-        System.out.println("car");
+        System.out.println(movie.getTitle());
     }
 }
 

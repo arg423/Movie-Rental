@@ -71,4 +71,20 @@ public class MovieRental {
         // Task 1
         
     }    
+    
+    public ArrayList<Movie> searchInventory(String title){
+        
+    }
+    
+    public ArrayList<Movie> searchInventory(Enum genre){
+        
+    }
+    
+    public ArrayList<Movie> searchInventory(int year){
+        
+    }
+    
+    public ArrayList<Movie> searchInventory(String actor){
+        
+    }
 }
