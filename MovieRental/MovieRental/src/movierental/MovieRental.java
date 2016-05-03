@@ -73,13 +73,13 @@ public class MovieRental {
             testUser.newRental(cal, results.get(0), Boolean.TRUE); //Rent one of the selected movies, pick it up in store; Also sets return date
         }
         catch(Exception e){
-            System.out.print(e); // Cannot rent out a non avalible movie
+            System.out.println(e); // Cannot rent out a non avalible movie
         }
         try{
             testUser.getRented().get(0).pay(testUser.getRented().get(0).getOwed()); // Pay the amount owed
         }
         catch(Exception e){
-            System.out.print(e); // The amount owed was not paid
+            System.out.println(e); // The amount owed was not paid
         }
         
         
@@ -91,7 +91,8 @@ public class MovieRental {
         catch(Exception e){
             
         }
-        System.out.print(testUser.getRented().get(0).calculateLateFee(cal2));
+        
+        System.out.println("Your late fee is "+testUser.getRented().get(0).calculateLateFee(cal2));
     }    
     
     public static ArrayList<Movie> searchInventory(ArrayList<Movie> inventory, String title){
@@ -112,7 +113,7 @@ public class MovieRental {
             if(inventory.get(i).getID() == ID)
                 return inventory.get(i);
             }
-        throw new Exception("No DVD matches given ID");
+        throw new Exception("No DVD matches given ID\n");
     }
 
     

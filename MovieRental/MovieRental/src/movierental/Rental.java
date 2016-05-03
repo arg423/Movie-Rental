@@ -32,7 +32,7 @@ public class Rental {
         this.pickupInStore = pickupInStore;
         this.paid = false;
         this.owed = 5.00;
-        System.out.print("Your total is " + owed);
+        System.out.println("Your total is " + owed);
     }
     
     public void pay(double amount) throws Exception{
@@ -41,7 +41,7 @@ public class Rental {
             throw new Exception("You have failed to pay your debt fully, you still owe: " + owed);
         else{
             paid = true;
-            System.out.print("You have paid the amount owed.\n");
+            System.out.println("You have paid the amount owed.");
         }
     }
     
