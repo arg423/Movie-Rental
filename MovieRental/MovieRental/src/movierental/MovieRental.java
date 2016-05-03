@@ -81,6 +81,9 @@ public class MovieRental {
             System.out.print(e); // The amount owed was not paid
         }
         
+        
+        //Task 2
+        
     }    
     
     public static ArrayList<Movie> searchInventory(ArrayList<Movie> inventory, String title){

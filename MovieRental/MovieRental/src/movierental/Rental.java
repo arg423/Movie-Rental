@@ -39,8 +39,10 @@ public class Rental {
         owed = owed - amount;
         if(owed > 0)
             throw new Exception("You have failed to pay your debt fully, you still owe: " + owed);
-        else
+        else{
             paid = true;
+            System.out.print("You have paid the amount owed.\n");
+        }
     }
     
     public float getOwed(){
