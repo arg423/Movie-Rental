@@ -29,6 +29,7 @@ public class MovieRental {
         ArrayList<Actor> actors = new ArrayList();
         Calendar cal = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
+        int counter = 0;
         
         // Adding Test Data, Creating Objects
         
@@ -84,11 +85,13 @@ public class MovieRental {
         
         //Task 2
         try{
-            searchByID(inventory,"1002");
+            testUser.newRental(cal2, searchByID(inventory,"1002"), Boolean.TRUE);
+            testUser.getRented().get(0).setStatus(Status.RENTED);
         }
         catch(Exception e){
             
         }
+        System.out.print(testUser.getRented().get(0).calculateLateFee(cal2));
     }    
     
     public static ArrayList<Movie> searchInventory(ArrayList<Movie> inventory, String title){
